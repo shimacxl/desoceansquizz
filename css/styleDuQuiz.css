@@ -1,0 +1,203 @@
+/*Olivier Gagnon - TP2 WEB*/
+
+
+
+/*Titre et animation du titre*/
+
+.titre{
+    flex-direction: column;
+}
+
+.titre-texte{
+    position: relative;
+    font-size: 50px;
+    text-transform: uppercase;
+}
+
+.titre-texte h2{
+    position: absolute; 
+    transform: translate(-50%, -50%);
+}
+
+.titre-texte h2:nth-child(1){
+    color: transparent;
+    -webkit-text-stroke: 2px #03a9f4;
+}
+
+.titre-texte h2:nth-child(2){
+    color: #03a9f4;
+    animation: anim-titre 4s ease-in-out infinite;
+}
+
+footer{
+    position: absolute;
+    transform: translateY(800%);
+    color: transparent;
+    -webkit-text-stroke: 0.5px #03a9f4;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.vagues{
+    position: absolute;
+    display: none;
+    background-color: #03a9f4;
+    width: 100vw;
+    height: 100vh;
+    animation: anim-vagues 2s ease-in-out paused;
+}
+
+
+@keyframes anim-vagues{
+    0%{
+        clip-path: polygon(0% 98%, 6% 94%, 14% 93%, 29% 95%, 43% 96%, 52% 92%, 65% 86%, 79% 89%, 88% 94%, 98% 96%, 100% 100%, 0 100%);
+    }
+    25%{
+        clip-path: polygon(0 86%, 9% 78%, 20% 85%, 30% 85%, 43% 77%, 54% 81%, 69% 81%, 73% 91%, 88% 86%, 100% 83%, 100% 100%, 0 100%);
+    }
+
+    50%{
+        clip-path: polygon(0 54%, 18% 46%, 29% 58%, 40% 66%, 49% 70%, 59% 73%, 71% 76%, 79% 80%, 90% 79%, 100% 81%, 100% 100%, 0 100%);
+        
+    }
+
+    75%{
+        clip-path: polygon(0 40%, 19% 38%, 33% 40%, 45% 45%, 49% 49%, 61% 55%, 63% 59%, 75% 50%, 84% 48%, 100% 31%, 100% 100%, 0 100%);
+    }
+
+    100%{
+        clip-path: polygon(0 0, 15% 0, 31% 0, 46% 0, 69% 0, 58% 0, 78% 0, 86% 0, 95% 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+@keyframes anim-titre{
+    0%, 100%{
+        clip-path: polygon(0% 96%, 12% 94%, 29% 92%, 46% 91%, 62% 91%, 77% 93%, 86% 88%, 100% 84%, 100% 100%, 0 100%);
+    }
+    50%{
+        clip-path: polygon(0 85%, 15% 88%, 30% 91%, 46% 91%, 61% 94%, 75% 95%, 87% 95%, 100% 93%, 100% 100%, 0 100%);
+    }
+}
+
+
+/*****************************ZONE DU QUIZZ*********************************/
+
+.zoneQuizz{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    display: none; /*on n'affiche pas la zone du quizz au démarage*/
+}
+
+div.choix{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    font-size: 2em;
+    color: white;
+    width: 50vmin;
+    height: fit-content;
+    border: 4px solid white;
+    border-radius: 20px;
+    background-color: #03a9f4;
+    transition: transform 1s, background-color 1s;
+}
+
+div.choix:hover{
+    transform: scale(1.2);
+    background-color: midnightblue;
+}
+
+div.choix.reponse-succes{
+    animation: anim-success 1s forwards;
+
+    color: green;
+    background-color: green;
+
+    transition: color 1s, background-color 1s;
+}
+
+div.choix.reponse-echec{
+    animation: reponse-echec 1s forwards;
+
+    color: red;
+    background-color: red;
+
+    transition: color 1s, background-color 1s;
+}
+
+.compteurVagues{
+    background-color: #03a9f4;
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+    animation: anim-compteurvagues 4s ease-in-out infinite;
+}
+
+@keyframes anim-success{
+    0%{
+        
+    }
+    100%{
+        clip-path: polygon(24% 53%, 35% 49%, 43% 68%, 52% 22%, 65% 21%, 50% 86%, 42% 86%);;
+    }
+}
+
+@keyframes reponse-echec{
+    0%{
+        
+    }
+    100%{
+        clip-path: polygon(18% 26%, 32% 16%, 51% 34%, 70% 15%, 82% 28%, 63% 47%, 83% 66%, 70% 80%, 50% 60%, 30% 81%, 18% 68%, 37% 51%);
+    }
+}
+
+
+@keyframes anim-compteurvagues{
+    0%, 100%{
+        clip-path: polygon(0% 3%, 7% 5%, 14% 10%, 31% 7%, 47% 5%, 57% 8%, 64% 13%, 78% 14%, 87% 9%, 97% 3%, 100% 3%, 100% 100%, 0 100%);
+    }
+    50%{
+        clip-path: polygon(0 7%, 8% 2%, 16% 6%, 31% 5%, 46% 10%, 57% 5%, 67% 9%, 78% 11%, 87% 6%, 94% 10%, 100% 13%, 100% 100%, 0 100%);
+    }
+}
+
+
+/*************************ZONE DE LA FIN**************************/
+.zoneFin{
+    display: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.btnRejouer{
+    background-color: green;
+    border-radius: 25px;
+    width: fit-content;
+    height: fit-content;
+    transition: transform 1s;
+    padding: 15px;
+}
+
+.btnRejouer:hover{
+    transform: rotate(360deg);
+}
+
+
+/* Ajustement pour les différents écrans*/
+@media screen and (min-width: 576px) {
+    
+}
+
+@media screen and (min-width: 768px) {
+    
+}
+
+@media screen and (min-width: 992px) {
+    main.quiz > header {
+        font-size: 5rem;
+    }
+}

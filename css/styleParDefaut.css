@@ -1,0 +1,35 @@
+/*Olivier Gagnon - TP2*/
+
+
+/*Normalisation supplémentaire*/
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select:none;
+}
+
+/* Style par défaut*/
+html {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: clamp(20px, 0.5rem + 0.5vw, 24px);
+}
+
+body {
+    max-width: 100%;
+    height: 100%;  
+    background-color: #060d30;
+    color: whitesmoke;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
